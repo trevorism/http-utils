@@ -1,4 +1,4 @@
-package com.equifax.idmart.http;
+package com.trevorism.http;
 
 import org.apache.http.HttpEntity;
 import org.apache.http.client.methods.*;
@@ -8,8 +8,6 @@ import org.apache.http.impl.client.HttpClients;
 import org.apache.http.message.BasicHeader;
 import org.apache.http.protocol.HTTP;
 import org.apache.http.util.EntityUtils;
-import org.slf4j.Logger;
-import org.slf4j.LoggerFactory;
 
 import java.io.IOException;
 import java.io.UnsupportedEncodingException;

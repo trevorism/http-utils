@@ -1,13 +1,14 @@
-package com.equifax.idmart.http;
+package com.trevorism.http;
 
 import org.asynchttpclient.*;
 
 /**
  * @author trevor.brooks
  */
-public class AsyncBlankHttpClient implements com.equifax.idmart.http.AsyncHttpClient {
+public class AsyncJsonHttpClient implements AsyncHttpClient {
 
     private final org.asynchttpclient.AsyncHttpClient asyncHttpClient = new DefaultAsyncHttpClient();
+
 
     @Override
     public ListenableFuture<Response> get(String url) {
@@ -15,16 +16,16 @@ public class AsyncBlankHttpClient implements com.equifax.idmart.http.AsyncHttpCl
     }
 
     @Override
-    public ListenableFuture<Response> post(String url, String input) {
+    public ListenableFuture<Response> post(String url, String json) {
         RequestBuilder builder = new RequestBuilder("POST");
-        Request request = builder.setUrl(CleanUrl.startWithHttp(url)).setBody(input).build();
+        Request request = builder.setUrl(CleanUrl.startWithHttp(url)).setBody(json).setHeader("Content-Type", "application/json").build();
         return asyncHttpClient.executeRequest(request);
     }
 
     @Override
-    public ListenableFuture<Response> put(String url, String input) {
+    public ListenableFuture<Response> put(String url, String json) {
         RequestBuilder builder = new RequestBuilder("PUT");
-        Request request = builder.setUrl(CleanUrl.startWithHttp(url)).setBody(input).build();
+        Request request = builder.setUrl(CleanUrl.startWithHttp(url)).setBody(json).setHeader("Content-Type", "application/json").build();
         return asyncHttpClient.executeRequest(request);
     }
 

@@ -1,4 +1,4 @@
-package com.equifax.idmart.http
+package com.trevorism.http
 
 import org.junit.Test
 
