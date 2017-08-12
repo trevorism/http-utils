@@ -19,21 +19,43 @@ public abstract class HttpClientBase implements HttpClient {
 
     private CloseableHttpClient httpClient = HttpClients.createDefault();
 
+    /**
+     * HTTP GET
+     * @param url The url to GET
+     * @return response content as a string
+     */
     @Override
     public String get(String url) {
         return requestData(new HttpGet(CleanUrl.startWithHttp(url)));
     }
 
+    /**
+     * HTTP POST
+     * @param url The url to POST
+     * @param serialized The request content as a string
+     * @return response content as a string
+     */
     @Override
     public String post(String url, String serialized) {
         return requestData(new HttpPost(CleanUrl.startWithHttp(url)), serialized);
     }
 
+    /**
+     * HTTP PUT
+     * @param url The url to PUT
+     * @param serialized The request content as a string
+     * @return response content as a string
+     */
     @Override
     public String put(String url, String serialized) {
         return requestData(new HttpPut(CleanUrl.startWithHttp(url)), serialized);
     }
 
+    /**
+     * HTTP DELETE
+     * @param url The url to DELETE
+     * @return response content as a string
+     */
     @Override
     public String delete(final String url) {
         return requestData(new HttpDelete(CleanUrl.startWithHttp(url)));
