@@ -1,4 +1,4 @@
-package com.trevorism.http
+package com.trevorism.http.util
 
 import org.junit.Test
 
