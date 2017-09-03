@@ -8,6 +8,9 @@ import java.util.Map;
  * @author tbrooks
  */
 public interface HeadersHttpClient {
+
+    String CORRELATION_ID_HEADER_KEY = "X-Correlation-ID";
+
     /**
      * Performs an HTTP GET
      *
