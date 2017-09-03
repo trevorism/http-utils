@@ -9,7 +9,7 @@ import org.junit.Test
  */
 class AsyncJsonHttpClientTest {
 
-    private AsyncJsonHttpClient client = new AsyncJsonHttpClient()
+    private com.trevorism.http.async.AsyncJsonHttpClient client = new com.trevorism.http.async.AsyncJsonHttpClient()
     private String url = "https://ixips-waiter-eastus2-prod.azurewebsites.net/api/waiter/10"
 
     @Test

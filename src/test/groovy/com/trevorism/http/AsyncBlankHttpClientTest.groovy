@@ -9,7 +9,7 @@ import org.junit.Test
  */
 class AsyncBlankHttpClientTest {
 
-    private AsyncBlankHttpClient client = new AsyncBlankHttpClient()
+    private com.trevorism.http.async.AsyncBlankHttpClient client = new com.trevorism.http.async.AsyncBlankHttpClient()
     private String url = "https://ixips-waiter-eastus2-prod.azurewebsites.net/api/waiter/10"
 
     @Test

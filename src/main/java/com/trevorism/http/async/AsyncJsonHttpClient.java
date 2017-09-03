@@ -1,5 +1,6 @@
-package com.trevorism.http;
+package com.trevorism.http.async;
 
+import com.trevorism.http.util.CleanUrl;
 import org.asynchttpclient.*;
 
 /**

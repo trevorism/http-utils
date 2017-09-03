@@ -1,4 +1,4 @@
-package com.trevorism.http;
+package com.trevorism.http.async;
 
 import org.asynchttpclient.ListenableFuture;
 import org.asynchttpclient.Response;

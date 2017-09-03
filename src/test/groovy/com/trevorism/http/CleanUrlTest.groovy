@@ -9,11 +9,11 @@ class CleanUrlTest {
 
     @Test
     void testStartWithHttp() {
-        assert "http://localhost" == CleanUrl.startWithHttp("http://localhost")
+        assert "http://localhost" == com.trevorism.http.util.CleanUrl.startWithHttp("http://localhost")
     }
 
     @Test
     void testStartWitNoHttp() {
-        assert "http://localhost" == CleanUrl.startWithHttp("localhost")
+        assert "http://localhost" == com.trevorism.http.util.CleanUrl.startWithHttp("localhost")
     }
 }

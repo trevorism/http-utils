@@ -1,4 +1,4 @@
-package com.trevorism.http;
+package com.trevorism.http.util;
 
 /**
  * @author trevor.brooks
