@@ -9,7 +9,7 @@ repositories {
 
 dependencies {
     compile 'org.apache.httpcomponents:httpclient:4.5.3'
-    compile 'org.asynchttpclient:async-http-client:2.0.34'
+    compile 'org.asynchttpclient:async-http-client:2.0.36'
     testCompile 'org.codehaus.groovy:groovy-all:2.4.12'
     testCompile 'com.google.code.gson:gson:2.8.1'
     testCompile 'junit:junit:4.12'
