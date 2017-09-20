@@ -1,6 +1,8 @@
-apply plugin: 'groovy'
-apply plugin: 'jacoco'
-
+plugins{
+    id "groovy"
+    id "jacoco"
+    id "maven-publish"
+}
 repositories {
 	mavenCentral()
 }
@@ -14,3 +16,4 @@ dependencies {
 }
 
 check.dependsOn "jacocoTestReport"
+apply from: "publishing.gradle"
