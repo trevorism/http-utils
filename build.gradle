@@ -1,8 +1,28 @@
+buildscript {
+    repositories {
+        mavenCentral()
+        maven {
+            url "https://plugins.gradle.org/m2/"
+        }
+        maven {
+            url uri("http://trevor.eastus.cloudapp.azure.com/nexus/content/repositories/releases")
+        }
+        maven {
+            url uri("http://trevorism-build.eastus.cloudapp.azure.com/nexus/repository/maven-releases")
+        }
+    }
+    dependencies {
+        classpath 'com.trevorism:gradle-release-plugin:0.2.0'
+    }
+}
+
 plugins{
     id "groovy"
     id "jacoco"
-    id "maven-publish"
 }
+
+apply plugin: "com.trevorism.gradle.release"
+
 repositories {
 	mavenCentral()
 }
@@ -11,9 +31,8 @@ dependencies {
     compile 'org.apache.httpcomponents:httpclient:4.5.5'
     compile 'org.asynchttpclient:async-http-client:2.4.7'
     testCompile 'org.codehaus.groovy:groovy-all:2.4.15'
-    testCompile 'com.google.code.gson:gson:2.8.4'
+    testCompile 'com.google.code.gson:gson:2.8.5'
     testCompile 'junit:junit:4.12'
 }
 
 check.dependsOn "jacocoTestReport"
-apply from: "publishing.gradle"
