@@ -16,7 +16,7 @@ import java.util.Map;
  */
 public abstract class HeadersHttpClientBase implements HeadersHttpClient {
 
-    private CloseableHttpClient httpClient = HttpClients.createDefault();
+    protected CloseableHttpClient httpClient = HttpClients.createDefault();
 
     /**
      * HTTP GET
