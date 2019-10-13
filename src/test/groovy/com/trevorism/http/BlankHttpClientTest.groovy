@@ -14,10 +14,10 @@ class BlankHttpClientTest {
 
     @Test
     void testBlank(){
-        String url = "https://ixips-waiter-eastus2-prod.azurewebsites.net/api/waiter/10"
+        String url = "https://endpoint-tester-dot-trevorism-gcloud.appspot.com/api/nospec"
         def client = new BlankHttpClient()
 
         String response = client.get(url)
-        assert "true" == response
+        assert "hello" == response
     }
 }

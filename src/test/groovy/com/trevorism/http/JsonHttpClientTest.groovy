@@ -14,21 +14,21 @@ class JsonHttpClientTest {
 
     @Test
     void testJson(){
-        String url = "https://ixips-waiter-eastus2-prod.azurewebsites.net/api/waiter/10"
+        String url = "https://endpoint-tester-dot-trevorism-gcloud.appspot.com/api/json"
         def client = new JsonHttpClient()
 
-        assert "true" == client.get(url)
-        assert "true" == client.post(url, "{}")
-        assert "true" == client.put(url, "{}")
-        assert "true" == client.delete(url)
+        assert "hello json" == client.get(url)
+        assert "{}" == client.post(url, "{}")
+        assert "{}" == client.put(url, "{}")
+        assert "delete json" == client.delete(url)
     }
 
     @Test
     void testInvalidJson(){
-        String url = "https://ixips-waiter-eastus2-prod.azurewebsites.net/api/waiter/ggg"
+        String url = "https://endpoint-tester-dot-trevorism-gcloud.appspot.com/api/json/fail"
         def client = new JsonHttpClient()
 
         String response = client.get(url)
-        assert response.contains("\"statusCode\":500")
+        assert response.contains("404")
     }
 }

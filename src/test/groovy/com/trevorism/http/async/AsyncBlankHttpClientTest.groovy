@@ -10,29 +10,29 @@ import org.junit.Test
 class AsyncBlankHttpClientTest {
 
     private com.trevorism.http.async.AsyncBlankHttpClient client = new com.trevorism.http.async.AsyncBlankHttpClient()
-    private String url = "https://ixips-waiter-eastus2-prod.azurewebsites.net/api/waiter/10"
+    private String url = "https://endpoint-tester-dot-trevorism-gcloud.appspot.com/api/nospec"
 
     @Test
     void testGet() {
         ListenableFuture<Response> future = client.get(url)
-        assert "true" == future.get().getResponseBody()
+        assert "hello" == future.get().getResponseBody()
     }
 
     @Test
     void testPost() {
-        ListenableFuture<Response> future = client.post(url, "{}")
-        assert "true" == future.get().getResponseBody()
+        ListenableFuture<Response> future = client.post(url, "whaa")
+        assert future.get().getResponseBody()
     }
 
     @Test
     void testPut() {
-        ListenableFuture<Response> future = client.put(url, "{}")
-        assert "true" == future.get().getResponseBody()
+        ListenableFuture<Response> future = client.put(url, "whaa")
+        assert future.get().getResponseBody()
     }
 
     @Test
     void testDelete() {
         ListenableFuture<Response> future = client.delete(url)
-        assert "true" == future.get().getResponseBody()
+        assert "delete" == future.get().getResponseBody()
     }
 }

@@ -14,11 +14,11 @@ class XmlHttpClientTest {
 
     @Test
     void testXml(){
-        String url = "https://ixips-waiter-eastus2-prod.azurewebsites.net/api/waiter/10"
+        String url = "https://endpoint-tester-dot-trevorism-gcloud.appspot.com/api/xml"
         def client = new XmlHttpClient()
 
         String response = client.get(url)
-        assert "true" == response
+        assert "hello xml" == response
     }
 
     @Test(expected = RuntimeException)
