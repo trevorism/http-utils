@@ -5,7 +5,10 @@
 ![GitHub language count](https://img.shields.io/github/languages/count/trevorism/http-utils)
 ![GitHub top language](https://img.shields.io/github/languages/top/trevorism/http-utils)
  
- Latest Version: 1.0.2 
+Latest Version: 1.0.2 
+
+ 
+Simple java library to perform REST calls. 
  
 ## How to Use 
 ```java
@@ -17,13 +20,13 @@ String jsonResponse = httpClient.post(url, "{}");
 ```
 
 ```java
-//Request/response with headers
+//Request or response with headers exposed
 String url = "http://....";
 HeadersHttpClient headersClient = new HeadersJsonHttpClient();
 CloseableHttpResponse response = null;
 try {
     Map<String, String> headersMap = createHeaderMap();
-    response = headersClient.post(url, json, headersMap);
+    response = headersClient.post(url, "{}", headersMap);
     return ResponseUtils.getEntity(response);
 }catch (Exception e){
     throw new RuntimeException(e);
@@ -32,7 +35,5 @@ try {
 }
 ```
 
-
-
 ## How to Build
-To get the tests to work, add `http.txt` with value `'test'` to `src/test/resources`
+`gradle clean build`
