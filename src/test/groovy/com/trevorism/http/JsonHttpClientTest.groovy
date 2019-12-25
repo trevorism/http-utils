@@ -14,7 +14,7 @@ class JsonHttpClientTest {
 
     @Test
     void testJson(){
-        String url = "https://endpoint-tester-dot-trevorism-gcloud.appspot.com/api/json"
+        String url = "https://endpoint-tester-dot-trevorism-testing.appspot.com/api/json"
         def client = new JsonHttpClient()
 
         assert "hello json" == client.get(url)
@@ -25,7 +25,7 @@ class JsonHttpClientTest {
 
     @Test
     void testInvalidJson(){
-        String url = "https://endpoint-tester-dot-trevorism-gcloud.appspot.com/api/json/fail"
+        String url = "https://endpoint-tester-dot-trevorism-testing.appspot.com/api/json/fail"
         def client = new JsonHttpClient()
 
         String response = client.get(url)

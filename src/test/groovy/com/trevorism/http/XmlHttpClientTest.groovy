@@ -14,7 +14,7 @@ class XmlHttpClientTest {
 
     @Test
     void testXml(){
-        String url = "https://endpoint-tester-dot-trevorism-gcloud.appspot.com/api/xml"
+        String url = "https://endpoint-tester-dot-trevorism-testing.appspot.com/api/xml"
         def client = new XmlHttpClient()
 
         String response = client.get(url)

@@ -6,12 +6,11 @@
 ![GitHub top language](https://img.shields.io/github/languages/top/trevorism/http-utils)
  
 Latest Version: 1.0.2 
-
  
 Simple java library to perform REST calls. 
  
 ## How to Use 
-```java
+```java_holder_method_tree
 //Simple json request/response
 String url = "http://....";
 HttpClient httpClient = new JsonHttpClient();
@@ -19,7 +18,7 @@ String json = httpClient.get(url);
 String jsonResponse = httpClient.post(url, "{}");
 ```
 
-```java
+```java_holder_method_tree
 //Request or response with headers exposed
 String url = "http://....";
 HeadersHttpClient headersClient = new HeadersJsonHttpClient();

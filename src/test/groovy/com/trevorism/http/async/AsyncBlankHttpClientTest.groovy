@@ -10,7 +10,7 @@ import org.junit.Test
 class AsyncBlankHttpClientTest {
 
     private com.trevorism.http.async.AsyncBlankHttpClient client = new com.trevorism.http.async.AsyncBlankHttpClient()
-    private String url = "https://endpoint-tester-dot-trevorism-gcloud.appspot.com/api/nospec"
+    private String url = "https://endpoint-tester-dot-trevorism-testing.appspot.com/api/nospec"
 
     @Test
     void testGet() {
