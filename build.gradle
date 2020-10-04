@@ -11,6 +11,7 @@ buildscript {
 }
 
 plugins{
+    id "java-library"
     id "groovy"
     id "jacoco"
 }
@@ -22,8 +23,8 @@ repositories {
 }
 
 dependencies {
-    implementation 'org.apache.httpcomponents:httpclient:4.5.10'
-    implementation 'org.asynchttpclient:async-http-client:2.10.4'
+    api 'org.apache.httpcomponents:httpclient:4.5.12'
+    api 'org.asynchttpclient:async-http-client:2.12.1'
     testImplementation 'org.codehaus.groovy:groovy-all:2.5.8'
     testImplementation 'com.google.code.gson:gson:2.8.6'
     testImplementation 'junit:junit:4.12'

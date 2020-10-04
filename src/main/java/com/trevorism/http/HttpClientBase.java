@@ -25,7 +25,7 @@ public abstract class HttpClientBase implements HttpClient {
      */
     @Override
     public String get(String url) {
-        return requestData(new HttpGet(CleanUrl.startWithHttp(url)));
+        return requestData(new HttpGet(CleanUrl.startWithHttps(url)));
     }
 
     /**
@@ -36,7 +36,7 @@ public abstract class HttpClientBase implements HttpClient {
      */
     @Override
     public String post(String url, String serialized) {
-        return requestData(new HttpPost(CleanUrl.startWithHttp(url)), serialized);
+        return requestData(new HttpPost(CleanUrl.startWithHttps(url)), serialized);
     }
 
     /**
@@ -47,7 +47,7 @@ public abstract class HttpClientBase implements HttpClient {
      */
     @Override
     public String put(String url, String serialized) {
-        return requestData(new HttpPut(CleanUrl.startWithHttp(url)), serialized);
+        return requestData(new HttpPut(CleanUrl.startWithHttps(url)), serialized);
     }
 
     /**
@@ -57,7 +57,7 @@ public abstract class HttpClientBase implements HttpClient {
      */
     @Override
     public String delete(final String url) {
-        return requestData(new HttpDelete(CleanUrl.startWithHttp(url)));
+        return requestData(new HttpDelete(CleanUrl.startWithHttps(url)));
     }
 
     protected abstract String getMediaType();

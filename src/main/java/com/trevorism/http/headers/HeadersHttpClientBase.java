@@ -25,7 +25,7 @@ public abstract class HeadersHttpClientBase implements HeadersHttpClient {
      */
     @Override
     public CloseableHttpResponse get(String url, Map<String,String> headers) {
-        return requestData(new HttpGet(CleanUrl.startWithHttp(url)), headers);
+        return requestData(new HttpGet(CleanUrl.startWithHttps(url)), headers);
     }
 
     /**
@@ -36,7 +36,7 @@ public abstract class HeadersHttpClientBase implements HeadersHttpClient {
      */
     @Override
     public CloseableHttpResponse post(String url, String serialized, Map<String,String> headers) {
-        return requestData(new HttpPost(CleanUrl.startWithHttp(url)), serialized, headers);
+        return requestData(new HttpPost(CleanUrl.startWithHttps(url)), serialized, headers);
     }
 
     /**
@@ -47,7 +47,7 @@ public abstract class HeadersHttpClientBase implements HeadersHttpClient {
      */
     @Override
     public CloseableHttpResponse put(String url, String serialized, Map<String,String> headers) {
-        return requestData(new HttpPut(CleanUrl.startWithHttp(url)), serialized, headers);
+        return requestData(new HttpPut(CleanUrl.startWithHttps(url)), serialized, headers);
     }
 
     /**
@@ -57,7 +57,7 @@ public abstract class HeadersHttpClientBase implements HeadersHttpClient {
      */
     @Override
     public CloseableHttpResponse delete(final String url, Map<String,String> headers) {
-        return requestData(new HttpDelete(CleanUrl.startWithHttp(url)), headers);
+        return requestData(new HttpDelete(CleanUrl.startWithHttps(url)), headers);
     }
 
     protected abstract String getMediaType();

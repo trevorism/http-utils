@@ -5,9 +5,9 @@
 ![GitHub language count](https://img.shields.io/github/languages/count/trevorism/http-utils)
 ![GitHub top language](https://img.shields.io/github/languages/top/trevorism/http-utils)
  
-Latest Version: 1.0.2 
+Latest Version: 1.1.0 
  
-Simple java library to perform REST calls. 
+Simple java library to perform HTTP calls. 
  
 ## How to Use 
 ```java_holder_method_tree

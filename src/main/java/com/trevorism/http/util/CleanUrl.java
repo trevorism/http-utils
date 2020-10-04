@@ -7,9 +7,9 @@ public class CleanUrl {
 
     private CleanUrl(){}
 
-    public static String startWithHttp(String url) {
+    public static String startWithHttps(String url) {
         if (!url.startsWith("http"))
-            url = "http://" + url;
+            url = "https://" + url;
         return url;
     }
 

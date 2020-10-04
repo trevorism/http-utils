@@ -17,7 +17,7 @@ public class AsyncJsonHttpClient implements AsyncHttpClient {
      */
     @Override
     public ListenableFuture<Response> get(String url) {
-        return asyncHttpClient.prepareGet(CleanUrl.startWithHttp(url)).execute();
+        return asyncHttpClient.prepareGet(CleanUrl.startWithHttps(url)).execute();
     }
 
     /**
@@ -29,7 +29,7 @@ public class AsyncJsonHttpClient implements AsyncHttpClient {
     @Override
     public ListenableFuture<Response> post(String url, String json) {
         RequestBuilder builder = new RequestBuilder("POST");
-        Request request = builder.setUrl(CleanUrl.startWithHttp(url)).setBody(json).setHeader("Content-Type", "application/json").build();
+        Request request = builder.setUrl(CleanUrl.startWithHttps(url)).setBody(json).setHeader("Content-Type", "application/json").build();
         return asyncHttpClient.executeRequest(request);
     }
 
@@ -42,7 +42,7 @@ public class AsyncJsonHttpClient implements AsyncHttpClient {
     @Override
     public ListenableFuture<Response> put(String url, String json) {
         RequestBuilder builder = new RequestBuilder("PUT");
-        Request request = builder.setUrl(CleanUrl.startWithHttp(url)).setBody(json).setHeader("Content-Type", "application/json").build();
+        Request request = builder.setUrl(CleanUrl.startWithHttps(url)).setBody(json).setHeader("Content-Type", "application/json").build();
         return asyncHttpClient.executeRequest(request);
     }
 
@@ -53,6 +53,6 @@ public class AsyncJsonHttpClient implements AsyncHttpClient {
      */
     @Override
     public ListenableFuture<Response> delete(String url) {
-        return asyncHttpClient.prepareDelete(CleanUrl.startWithHttp(url)).execute();
+        return asyncHttpClient.prepareDelete(CleanUrl.startWithHttps(url)).execute();
     }
 }
