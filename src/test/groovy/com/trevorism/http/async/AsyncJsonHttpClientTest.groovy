@@ -9,7 +9,7 @@ import org.junit.Test
  */
 class AsyncJsonHttpClientTest {
 
-    private com.trevorism.http.async.AsyncJsonHttpClient client = new com.trevorism.http.async.AsyncJsonHttpClient()
+    private AsyncJsonHttpClient client = new AsyncJsonHttpClient()
     private String url = "https://endpoint-tester-dot-trevorism-testing.appspot.com/api/json"
 
     @Test

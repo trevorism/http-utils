@@ -5,7 +5,7 @@
 ![GitHub language count](https://img.shields.io/github/languages/count/trevorism/http-utils)
 ![GitHub top language](https://img.shields.io/github/languages/top/trevorism/http-utils)
  
-Latest Version: 1.1.0 
+Latest Version: 1.2.0 
  
 Simple java library to perform HTTP calls. 
  
@@ -32,6 +32,14 @@ try {
 }finally{
     ResponseUtils.closeSilently(response);
 }
+```
+
+```java_holder_method_tree
+//Async request allows client to invoke a request without waiting.
+String url = "http://....";
+AsyncJsonHttpClient client = new AsyncJsonHttpClient();
+ListenableFuture<Response> future = client.get(url);
+String response = future.get().getResponseBody();
 ```
 
 ## How to Build
