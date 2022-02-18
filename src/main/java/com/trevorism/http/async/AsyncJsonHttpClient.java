@@ -47,6 +47,19 @@ public class AsyncJsonHttpClient implements AsyncHttpClient {
     }
 
     /**
+     * Async HTTP PATCH
+     * @param url The url to PATCH
+     * @param json The request content as json
+     * @return future with the response
+     */
+    @Override
+    public ListenableFuture<Response> patch(String url, String json) {
+        RequestBuilder builder = new RequestBuilder("PATCH");
+        Request request = builder.setUrl(CleanUrl.startWithHttps(url)).setBody(json).setHeader("Content-Type", "application/json").build();
+        return asyncHttpClient.executeRequest(request);
+    }
+
+    /**
      * Async HTTP DELETE
      * @param url The url to DELETE
      * @return future with the response

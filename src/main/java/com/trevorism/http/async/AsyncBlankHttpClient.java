@@ -47,6 +47,19 @@ public class AsyncBlankHttpClient implements AsyncHttpClient {
     }
 
     /**
+     * Async HTTP PATCH
+     * @param url The url to PATCH
+     * @param input The request content as a string
+     * @return future with the response
+     */
+    @Override
+    public ListenableFuture<Response> patch(String url, String input) {
+        RequestBuilder builder = new RequestBuilder("PATCH");
+        Request request = builder.setUrl(CleanUrl.startWithHttps(url)).setBody(input).build();
+        return asyncHttpClient.executeRequest(request);
+    }
+
+    /**
      * Async HTTP DELETE
      * @param url The url to DELETE
      * @return future with the response

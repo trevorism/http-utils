@@ -51,6 +51,18 @@ public abstract class HttpClientBase implements HttpClient {
     }
 
     /**
+     * Performs an HTTP PATCH
+     *
+     * @param url        The url to PATCH
+     * @param serialized The serialized item to PATCH
+     * @return The string content of the response
+     */
+    @Override
+    public String patch(String url, String serialized) {
+        return requestData(new HttpPatch(CleanUrl.startWithHttps(url)), serialized);
+    }
+
+    /**
      * HTTP DELETE
      * @param url The url to DELETE
      * @return response content as a string

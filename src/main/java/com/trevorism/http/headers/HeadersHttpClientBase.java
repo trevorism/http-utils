@@ -21,6 +21,7 @@ public abstract class HeadersHttpClientBase implements HeadersHttpClient {
     /**
      * HTTP GET
      * @param url The url to GET
+     * @param headers The HTTP headers to send with the request
      * @return response content as a string
      */
     @Override
@@ -32,6 +33,7 @@ public abstract class HeadersHttpClientBase implements HeadersHttpClient {
      * HTTP POST
      * @param url The url to POST
      * @param serialized The request content as a string
+     * @param headers The HTTP headers to send with the request
      * @return response content as a string
      */
     @Override
@@ -43,6 +45,7 @@ public abstract class HeadersHttpClientBase implements HeadersHttpClient {
      * HTTP PUT
      * @param url The url to PUT
      * @param serialized The request content as a string
+     * @param headers The HTTP headers to send with the request
      * @return response content as a string
      */
     @Override
@@ -51,8 +54,21 @@ public abstract class HeadersHttpClientBase implements HeadersHttpClient {
     }
 
     /**
+     * HTTP PATCH
+     * @param url The url to PATCH
+     * @param serialized The request content as a string
+     * @param headers The HTTP headers to send with the request
+     * @return response content as a string
+     */
+    @Override
+    public CloseableHttpResponse patch(String url, String serialized, Map<String,String> headers) {
+        return requestData(new HttpPatch(CleanUrl.startWithHttps(url)), serialized, headers);
+    }
+
+    /**
      * HTTP DELETE
      * @param url The url to DELETE
+     * @param headers The HTTP headers to send with the request
      * @return response content as a string
      */
     @Override

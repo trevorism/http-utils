@@ -35,6 +35,15 @@ public interface AsyncHttpClient {
     ListenableFuture<Response> put(String url, String serialized);
 
     /**
+     * Performs an HTTP PATCH
+     *
+     * @param url        The url to PATCH
+     * @param serialized The serialized item to PATCH
+     * @return The string content of the response
+     */
+    ListenableFuture<Response> patch(String url, String serialized);
+
+    /**
      * Performs an HTTP DELETE
      *
      * @param url The url to DELETE
