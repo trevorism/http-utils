@@ -1,11 +1,10 @@
  # Http Utils
-![Jenkins](https://img.shields.io/jenkins/build/http/trevorism-build.eastus.cloudapp.azure.com/http-utils)
-![Jenkins Coverage](https://img.shields.io/jenkins/coverage/jacoco/http/trevorism-build.eastus.cloudapp.azure.com/http-utils)
+![Build](https://github.com/trevorism/http-utils/actions/workflows/build.yml/badge.svg)
 ![GitHub last commit](https://img.shields.io/github/last-commit/trevorism/http-utils)
 ![GitHub language count](https://img.shields.io/github/languages/count/trevorism/http-utils)
 ![GitHub top language](https://img.shields.io/github/languages/top/trevorism/http-utils)
  
-Latest Version: 1.2.0 
+Latest [Version](/releases/latest)
  
 Simple java library to perform HTTP calls. 
  
