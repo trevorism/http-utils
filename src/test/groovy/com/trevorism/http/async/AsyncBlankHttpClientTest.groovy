@@ -22,12 +22,14 @@ class AsyncBlankHttpClientTest {
     void testPost() {
         ListenableFuture<Response> future = client.post(url, "whaa")
         assert future.get().getResponseBody()
+
     }
 
     @Test
     void testPut() {
         ListenableFuture<Response> future = client.put(url, "whaa")
-        assert future.get().getResponseBody()
+        def value =  future.get().getResponseBody()
+        assert value == ""
     }
 
     @Test
