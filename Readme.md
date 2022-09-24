@@ -4,7 +4,7 @@
 ![GitHub language count](https://img.shields.io/github/languages/count/trevorism/http-utils)
 ![GitHub top language](https://img.shields.io/github/languages/top/trevorism/http-utils)
  
-Latest [Version](/releases/latest)
+Latest [Version](https://github.com/trevorism/http-utils/releases/latest)
  
 Simple java library to perform HTTP calls. 
  
