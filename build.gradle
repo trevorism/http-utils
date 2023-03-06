@@ -30,10 +30,9 @@ repositories {
 }
 
 dependencies {
-    api 'org.apache.httpcomponents:httpclient:4.5.13'
-    api 'org.asynchttpclient:async-http-client:2.12.3'
-    testImplementation 'org.codehaus.groovy:groovy-all:2.5.15'
-    testImplementation 'com.google.code.gson:gson:2.9.1'
+    api 'org.apache.httpcomponents.client5:httpclient5:5.2.1'
+    testImplementation 'org.codehaus.groovy:groovy-all:2.5.21'
+    testImplementation 'com.google.code.gson:gson:2.10.1'
     testImplementation 'junit:junit:4.13.2'
 }
 

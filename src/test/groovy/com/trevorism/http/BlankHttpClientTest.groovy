@@ -9,7 +9,7 @@ class BlankHttpClientTest {
 
     @Test
     void testGetMediaType() {
-        assert !(new BlankHttpClient().getMediaType())
+        assert new BlankHttpClient().getMediaType() == "text/plain"
     }
 
     @Test

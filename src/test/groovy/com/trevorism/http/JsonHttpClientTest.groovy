@@ -1,5 +1,6 @@
 package com.trevorism.http
 
+import com.trevorism.http.util.InvalidRequestException
 import org.junit.Test
 
 /**
@@ -23,7 +24,7 @@ class JsonHttpClientTest {
         assert "delete json" == client.delete(url)
     }
 
-    @Test
+    @Test(expected = InvalidRequestException)
     void testInvalidJson(){
         String url = "https://endpoint-tester-dot-trevorism-testing.appspot.com/api/json/fail"
         def client = new JsonHttpClient()

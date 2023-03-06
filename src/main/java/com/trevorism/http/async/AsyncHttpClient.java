@@ -1,7 +1,9 @@
 package com.trevorism.http.async;
 
-import org.asynchttpclient.ListenableFuture;
-import org.asynchttpclient.Response;
+import org.apache.hc.client5.http.async.methods.SimpleHttpResponse;
+import org.apache.hc.core5.concurrent.FutureCallback;
+
+import java.util.concurrent.Future;
 
 /**
  * @author trevor.brooks
@@ -14,7 +16,7 @@ public interface AsyncHttpClient {
      * @param url The url to GET
      * @return The string content of the response
      */
-    ListenableFuture<Response> get(String url);
+    Future<SimpleHttpResponse> get(String url, FutureCallback<SimpleHttpResponse> callback);
 
     /**
      * Performs an HTTP POST
@@ -23,7 +25,7 @@ public interface AsyncHttpClient {
      * @param serialized The serialized item to POST
      * @return The string content of the response
      */
-    ListenableFuture<Response> post(String url, String serialized);
+    Future<SimpleHttpResponse> post(String url, String serialized, FutureCallback<SimpleHttpResponse> callback);
 
     /**
      * Performs an HTTP PUT
@@ -32,7 +34,7 @@ public interface AsyncHttpClient {
      * @param serialized The serialized item to PUT
      * @return The string content of the response
      */
-    ListenableFuture<Response> put(String url, String serialized);
+    Future<SimpleHttpResponse> put(String url, String serialized, FutureCallback<SimpleHttpResponse> callback);
 
     /**
      * Performs an HTTP PATCH
@@ -41,7 +43,7 @@ public interface AsyncHttpClient {
      * @param serialized The serialized item to PATCH
      * @return The string content of the response
      */
-    ListenableFuture<Response> patch(String url, String serialized);
+    Future<SimpleHttpResponse> patch(String url, String serialized, FutureCallback<SimpleHttpResponse> callback);
 
     /**
      * Performs an HTTP DELETE
@@ -49,5 +51,5 @@ public interface AsyncHttpClient {
      * @param url The url to DELETE
      * @return The string content of the response
      */
-    ListenableFuture<Response> delete(String url);
+    Future<SimpleHttpResponse> delete(String url, FutureCallback<SimpleHttpResponse> callback);
 }

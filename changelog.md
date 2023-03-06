@@ -1,3 +1,7 @@
+# 2.0.0
+
+Migrate to httpclient5. Improve interfaces.
+
 # 1.4.0
 
 Move to github actions

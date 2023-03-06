@@ -1,9 +1,10 @@
 package com.trevorism.http.headers
 
-import com.trevorism.http.util.ResponseUtils
-import org.apache.http.HttpEntity
-import org.apache.http.client.methods.CloseableHttpResponse
-import org.apache.http.impl.client.CloseableHttpClient
+import com.trevorism.http.BlankHttpClient
+import com.trevorism.http.HeadersHttpResponse
+import com.trevorism.http.HttpClientBase
+import com.trevorism.http.util.HeadersHttpClientResponseHandler
+import org.apache.hc.client5.http.impl.classic.CloseableHttpClient
 import org.junit.Before
 import org.junit.Test
 
@@ -12,53 +13,18 @@ import org.junit.Test
  */
 class HeadersBlankHttpClientTest {
 
-    private HeadersHttpClientBase client
+    private HttpClientBase client
 
     @Before
     void setup(){
-        client = new HeadersBlankHttpClient()
-        client.httpClient = [execute: {requestType -> createCloseableHttpResponse("{}")}] as CloseableHttpClient
+        client = new BlankHttpClient()
     }
 
     @Test
     void testGetMediaType() {
-        assert !client.getMediaType()
+        assert client.getMediaType() == "text/plain"
     }
 
-    @Test
-    void testGet(){
-        def response = client.get("url", [:])
-        String result = ResponseUtils.getEntity(response)
-        assert result == "{}"
-    }
 
-    @Test
-    void testPost(){
-        def response = client.post("url", "{}", [:])
-        String result = ResponseUtils.getEntity(response)
-        assert result == "{}"
-    }
-
-    @Test
-    void testPut(){
-        def response = client.put("url", "{}", [:])
-        String result = ResponseUtils.getEntity(response)
-        assert result == "{}"
-    }
-
-    @Test
-    void testDelete(){
-        def response = client.delete("url", [:])
-        String result = ResponseUtils.getEntity(response)
-        assert result == "{}"
-    }
-
-    static CloseableHttpResponse createCloseableHttpResponse(String responseString){
-        Closure getContentClosure = { -> new ByteArrayInputStream( responseString.getBytes() ) }
-        Closure getContentLengthClosure = {->Long.valueOf(responseString.size())}
-        HttpEntity entity = [getContentLength: getContentLengthClosure,getContentType: {return null},getContent: getContentClosure, isStreaming:{->true}] as HttpEntity
-        CloseableHttpResponse response = [getEntity:{ -> entity}] as CloseableHttpResponse
-        return response
-    }
 
 }

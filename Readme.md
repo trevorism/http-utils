@@ -20,25 +20,19 @@ String jsonResponse = httpClient.post(url, "{}");
 ```java_holder_method_tree
 //Request or response with headers exposed
 String url = "http://....";
-HeadersHttpClient headersClient = new HeadersJsonHttpClient();
+HttpClient headersClient = new JsonHttpClient();
 CloseableHttpResponse response = null;
-try {
-    Map<String, String> headersMap = createHeaderMap();
-    response = headersClient.post(url, "{}", headersMap);
-    return ResponseUtils.getEntity(response);
-}catch (Exception e){
-    throw new RuntimeException(e);
-}finally{
-    ResponseUtils.closeSilently(response);
-}
+Map<String, String> headersMap = createHeaderMap();
+String jsonResponse = headersClient.post(url, "{}", headersMap).getValue();
+Map<String, String> responseHeaders = headersClient.post(url, "{}", headersMap).getHeaders();
 ```
 
 ```java_holder_method_tree
 //Async request allows client to invoke a request without waiting.
 String url = "http://....";
 AsyncJsonHttpClient client = new AsyncJsonHttpClient();
-ListenableFuture<Response> future = client.get(url);
-String response = future.get().getResponseBody();
+Future<SimpleHttpResponse> future = client.get(url);
+String jsonResponse = future.get().getBody().getBodyText();
 ```
 
 ## How to Build

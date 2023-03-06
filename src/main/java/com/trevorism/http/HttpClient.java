@@ -1,5 +1,7 @@
 package com.trevorism.http;
 
+import java.util.Map;
+
 /**
  * @author trevor.brooks
  */
@@ -12,6 +14,8 @@ public interface HttpClient {
      */
     String get(String url);
 
+    HeadersHttpResponse get(String url, Map<String, String> headers);
+
     /**
      * Performs an HTTP POST
      *
@@ -20,6 +24,8 @@ public interface HttpClient {
      * @return The string content of the response
      */
     String post(String url, String serialized);
+
+    HeadersHttpResponse post(String url, String serialized, Map<String, String> headers);
 
     /**
      * Performs an HTTP PUT
@@ -30,6 +36,8 @@ public interface HttpClient {
      */
     String put(String url, String serialized);
 
+    HeadersHttpResponse put(String url, String serialized, Map<String, String> headers);
+
     /**
      * Performs an HTTP PATCH
      *
@@ -39,6 +47,8 @@ public interface HttpClient {
      */
     String patch(String url, String serialized);
 
+    HeadersHttpResponse patch(String url, String serialized, Map<String, String> headers);
+
     /**
      * Performs an HTTP DELETE
      *
@@ -46,4 +56,6 @@ public interface HttpClient {
      * @return The string content of the response
      */
     String delete(String url);
+
+    HeadersHttpResponse delete(String url, Map<String, String> headers);
 }

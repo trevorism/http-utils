@@ -6,6 +6,6 @@ package com.trevorism.http;
 public class BlankHttpClient extends HttpClientBase{
     @Override
     protected String getMediaType() {
-        return null;
+        return "text/plain";
     }
 }

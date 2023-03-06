@@ -1,40 +1,78 @@
 package com.trevorism.http.async
 
-import org.asynchttpclient.ListenableFuture
-import org.asynchttpclient.Response
+import org.apache.hc.client5.http.async.methods.SimpleHttpResponse
+import org.apache.hc.client5.http.impl.async.CloseableHttpAsyncClient
+import org.apache.hc.core5.concurrent.FutureCallback
+import org.apache.hc.core5.reactor.IOReactorStatus
+import org.junit.Before
 import org.junit.Test
+
+import java.util.concurrent.ExecutionException
+import java.util.concurrent.Future
+import java.util.concurrent.TimeUnit
+import java.util.concurrent.TimeoutException
 
 /**
  * @author trevor.brooks
  */
 class AsyncBlankHttpClientTest {
 
-    private com.trevorism.http.async.AsyncBlankHttpClient client = new com.trevorism.http.async.AsyncBlankHttpClient()
+    private AsyncBlankHttpClient client = new AsyncBlankHttpClient()
     private String url = "https://endpoint-tester-dot-trevorism-testing.appspot.com/api/nospec"
+
+    @Before
+    void setup(){
+        client.asyncHttpClient = [getStatus:{-> IOReactorStatus.ACTIVE}, doExecute: {u,v,w,x,y,z -> return new Future<SimpleHttpResponse>(){
+            @Override
+            boolean cancel(boolean mayInterruptIfRunning) {
+                return false
+            }
+
+            @Override
+            boolean isCancelled() {
+                return false
+            }
+
+            @Override
+            boolean isDone() {
+                return false
+            }
+
+            @Override
+            SimpleHttpResponse get() throws InterruptedException, ExecutionException {
+                return SimpleHttpResponse.create(200, "hello")
+            }
+
+            @Override
+            SimpleHttpResponse get(long timeout, TimeUnit unit) throws InterruptedException, ExecutionException, TimeoutException {
+                return null
+            }
+        }}] as CloseableHttpAsyncClient
+    }
 
     @Test
     void testGet() {
-        ListenableFuture<Response> future = client.get(url)
-        assert "hello" == future.get().getResponseBody()
+        Future<SimpleHttpResponse> future = client.get(url, new TestFutureCallback())
+        assert "hello" == future.get().getBody().bodyText
     }
 
     @Test
     void testPost() {
-        ListenableFuture<Response> future = client.post(url, "whaa")
-        assert future.get().getResponseBody()
-
+        Future<SimpleHttpResponse> future = client.post(url, "whaa", new TestFutureCallback())
+        assert future.get().getBody().bodyText
     }
 
     @Test
     void testPut() {
-        ListenableFuture<Response> future = client.put(url, "whaa")
-        def value =  future.get().getResponseBody()
-        assert value == ""
+        Future<SimpleHttpResponse> future = client.put(url, "whaa", new TestFutureCallback())
+        def value =  future.get().getBody().bodyText
+        assert future.get().getBody().bodyText
     }
 
     @Test
     void testDelete() {
-        ListenableFuture<Response> future = client.delete(url)
-        assert "delete" == future.get().getResponseBody()
+        Future<SimpleHttpResponse> future = client.delete(url, new TestFutureCallback())
+        assert "hello" == future.get().getBody().bodyText
     }
+
 }

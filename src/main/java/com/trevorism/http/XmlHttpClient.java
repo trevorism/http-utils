@@ -7,7 +7,7 @@ public class XmlHttpClient extends HttpClientBase {
 
     @Override
     protected String getMediaType() {
-        return "application/xml";
+        return "text/xml";
     }
 
 }

@@ -9,7 +9,7 @@ class XmlHttpClientTest {
 
     @Test
     void testGetMediaType() {
-        assert "application/xml" == new XmlHttpClient().getMediaType()
+        assert "text/xml" == new XmlHttpClient().getMediaType()
     }
 
     @Test
