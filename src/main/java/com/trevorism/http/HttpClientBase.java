@@ -3,6 +3,7 @@ package com.trevorism.http;
 import com.trevorism.http.util.CleanUrl;
 import com.trevorism.http.util.HeadersHttpClientResponseHandler;
 import com.trevorism.http.util.InvalidRequestException;
+import org.apache.hc.client5.http.HttpResponseException;
 import org.apache.hc.client5.http.classic.methods.*;
 import org.apache.hc.client5.http.impl.classic.BasicHttpClientResponseHandler;
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient;
@@ -105,26 +106,30 @@ public abstract class HttpClientBase implements HttpClient {
 
     protected abstract String getMediaType();
 
-    private HeadersHttpResponse requestData(HttpUriRequestBase requestType, Map<String,String> headers) {
+    private HeadersHttpResponse requestData(HttpUriRequestBase requestType, Map<String, String> headers) {
         try {
             for (Map.Entry<String, String> headerEntry : headers.entrySet()) {
                 requestType.setHeader(headerEntry.getKey(), headerEntry.getValue());
             }
             return httpClient.execute(requestType, new HeadersHttpClientResponseHandler());
-        } catch (Exception e) {
-            throw new InvalidRequestException(e);
+        } catch (HttpResponseException e) {
+            throw new InvalidRequestException(e, e.getStatusCode());
+        } catch (Exception ex) {
+            throw new InvalidRequestException(ex);
         }
     }
 
-    private HeadersHttpResponse requestData(HttpUriRequestBase requestType, String input, Map<String,String> headers) {
+    private HeadersHttpResponse requestData(HttpUriRequestBase requestType, String input, Map<String, String> headers) {
         try {
             requestType.setEntity(new StringEntity(input, ContentType.create(getMediaType())));
             for (Map.Entry<String, String> headerEntry : headers.entrySet()) {
                 requestType.setHeader(headerEntry.getKey(), headerEntry.getValue());
             }
             return httpClient.execute(requestType, new HeadersHttpClientResponseHandler());
-        } catch (Exception e) {
-            throw new InvalidRequestException(e);
+        } catch (HttpResponseException e) {
+            throw new InvalidRequestException(e, e.getStatusCode());
+        } catch (Exception ex) {
+            throw new InvalidRequestException(ex);
         }
     }
 }

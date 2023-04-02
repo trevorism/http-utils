@@ -17,7 +17,7 @@ import java.util.concurrent.TimeoutException
 class AsyncJsonHttpClientTest {
 
     private AsyncJsonHttpClient client = new AsyncJsonHttpClient()
-    private String url = "https://endpoint-tester-dot-trevorism-testing.appspot.com/api/json"
+    private String url = "https://endpoint-tester.testing.trevorism.com/api/json"
 
     @Before
     void setup(){

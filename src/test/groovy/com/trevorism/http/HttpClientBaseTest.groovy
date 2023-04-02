@@ -21,52 +21,52 @@ class HttpClientBaseTest {
 
     @Test
     void testGet() {
-        assert "hello" == client.get("https://endpoint-tester-dot-trevorism-testing.appspot.com/api/json")
+        assert "hello" == client.get("https://endpoint-tester.testing.trevorism.com/api/json")
 
     }
 
     @Test
     void testGetHeaders() {
-        assert "hello" == client.get("https://endpoint-tester-dot-trevorism-testing.appspot.com/api/json",[:]).getValue()
+        assert "hello" == client.get("https://endpoint-tester.testing.trevorism.com/api/json",[:]).getValue()
     }
 
     @Test
     void testPost() {
-        assert "hello" == client.post("https://endpoint-tester-dot-trevorism-testing.appspot.com/api/json", "{}")
+        assert "hello" == client.post("https://endpoint-tester.testing.trevorism.com/api/json", "{}")
     }
 
     @Test
     void testPostHeaders() {
-        assert "hello" == client.post("https://endpoint-tester-dot-trevorism-testing.appspot.com/api/json", "{}", [:]).getValue()
+        assert "hello" == client.post("https://endpoint-tester.testing.trevorism.com/api/json", "{}", [:]).getValue()
     }
 
     @Test
     void testPut() {
-        assert "hello" == client.put("https://endpoint-tester-dot-trevorism-testing.appspot.com/api/json", "{}")
+        assert "hello" == client.put("https://endpoint-tester.testing.trevorism.com/api/json", "{}")
     }
 
     @Test
     void testPutHeaders() {
-        assert "hello" == client.put("https://endpoint-tester-dot-trevorism-testing.appspot.com/api/json", "{}", [:]).getValue()
+        assert "hello" == client.put("https://endpoint-tester.testing.trevorism.com/api/json", "{}", [:]).getValue()
     }
 
     @Test
     void testPatch() {
-        assert "hello" == client.patch("https://endpoint-tester-dot-trevorism-testing.appspot.com/api/json", "{}")
+        assert "hello" == client.patch("https://endpoint-tester.testing.trevorism.com/api/json", "{}")
     }
 
     @Test
     void testPatchHeaders() {
-        assert "hello" == client.patch("https://endpoint-tester-dot-trevorism-testing.appspot.com/api/json", "{}", [:]).getValue()
+        assert "hello" == client.patch("https://endpoint-tester.testing.trevorism.com/api/json", "{}", [:]).getValue()
     }
 
     @Test
     void testDelete() {
-        assert "hello" == client.delete("https://endpoint-tester-dot-trevorism-testing.appspot.com/api/json")
+        assert "hello" == client.delete("https://endpoint-tester.testing.trevorism.com/api/json")
     }
 
     @Test
     void testDeleteHeaders() {
-        assert "hello" == client.delete("https://endpoint-tester-dot-trevorism-testing.appspot.com/api/json",[:]).getValue()
+        assert "hello" == client.delete("https://endpoint-tester.testing.trevorism.com/api/json",[:]).getValue()
     }
 }

@@ -17,6 +17,7 @@ import java.util.Map;
 public class HeadersHttpClientResponseHandler extends AbstractHttpClientResponseHandler<HeadersHttpResponse> {
 
     private Map<String,String> headers = new HashMap<>();
+    private int statusCode;
 
     /**
      * Returns the entity as a body as a String.
@@ -25,7 +26,7 @@ public class HeadersHttpClientResponseHandler extends AbstractHttpClientResponse
     public HeadersHttpResponse handleEntity(final HttpEntity entity) throws IOException {
         try {
             String value = EntityUtils.toString(entity);
-            return new HeadersHttpResponse(value, headers);
+            return new HeadersHttpResponse(value, headers, statusCode);
         } catch (final ParseException ex) {
             throw new ClientProtocolException(ex);
         }
@@ -33,6 +34,7 @@ public class HeadersHttpClientResponseHandler extends AbstractHttpClientResponse
 
     @Override
     public HeadersHttpResponse handleResponse(final ClassicHttpResponse response) throws IOException {
+        this.statusCode = response.getCode();
         final HttpEntity entity = response.getEntity();
 
         if (response.getCode() >= HttpStatus.SC_REDIRECTION) {

@@ -14,7 +14,7 @@ class BlankHttpClientTest {
 
     @Test
     void testBlank(){
-        String url = "https://endpoint-tester-dot-trevorism-testing.appspot.com/api/nospec"
+        String url = "https://endpoint-tester.testing.trevorism.com/api/nospec"
         def client = new BlankHttpClient()
 
         String response = client.get(url)

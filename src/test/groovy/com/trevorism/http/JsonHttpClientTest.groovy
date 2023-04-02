@@ -15,7 +15,7 @@ class JsonHttpClientTest {
 
     @Test
     void testJson(){
-        String url = "https://endpoint-tester-dot-trevorism-testing.appspot.com/api/json"
+        String url = "https://endpoint-tester.testing.trevorism.com/api/json"
         def client = new JsonHttpClient()
 
         assert "hello json" == client.get(url)
@@ -26,10 +26,10 @@ class JsonHttpClientTest {
 
     @Test(expected = InvalidRequestException)
     void testInvalidJson(){
-        String url = "https://endpoint-tester-dot-trevorism-testing.appspot.com/api/json/fail"
+        String url = "https://endpoint-tester.testing.trevorism.com/api/json/fail"
         def client = new JsonHttpClient()
 
-        String response = client.get(url)
-        assert response.contains("404")
+        client.get(url)
+
     }
 }

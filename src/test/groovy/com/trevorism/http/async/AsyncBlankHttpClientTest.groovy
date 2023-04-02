@@ -18,7 +18,7 @@ import java.util.concurrent.TimeoutException
 class AsyncBlankHttpClientTest {
 
     private AsyncBlankHttpClient client = new AsyncBlankHttpClient()
-    private String url = "https://endpoint-tester-dot-trevorism-testing.appspot.com/api/nospec"
+    private String url = "https://endpoint-tester.testing.trevorism.com/api/nospec"
 
     @Before
     void setup(){
