@@ -1,6 +1,6 @@
 package com.trevorism.http.util
 
-import org.junit.Test
+import org.junit.jupiter.api.Test
 
 /**
  * @author trevor.brooks

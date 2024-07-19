@@ -1,3 +1,7 @@
+# 2.2.0
+
+Update dependencies. Move to junit 5.
+
 # 2.1.0
 
 Add status code to responses and errors for better error handling.

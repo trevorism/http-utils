@@ -30,10 +30,16 @@ repositories {
 }
 
 dependencies {
-    api 'org.apache.httpcomponents.client5:httpclient5:5.2.1'
-    testImplementation 'org.codehaus.groovy:groovy-all:2.5.21'
-    testImplementation 'com.google.code.gson:gson:2.10.1'
-    testImplementation 'junit:junit:4.13.2'
+    api 'org.apache.httpcomponents.client5:httpclient5:5.3.1'
+    testImplementation 'org.slf4j:slf4j-nop:2.0.13'
+    testImplementation 'com.google.code.gson:gson:2.11.0'
+    testImplementation 'org.apache.groovy:groovy-all:4.0.22'
+    testImplementation 'org.junit.jupiter:junit-jupiter-api:5.10.3'
+    testRuntimeOnly 'org.junit.jupiter:junit-jupiter-engine:5.10.3'
+}
+
+test{
+    useJUnitPlatform()
 }
 
 check.dependsOn "jacocoTestReport"

@@ -3,8 +3,8 @@ package com.trevorism.http.async
 import org.apache.hc.client5.http.async.methods.SimpleHttpResponse
 import org.apache.hc.client5.http.impl.async.CloseableHttpAsyncClient
 import org.apache.hc.core5.reactor.IOReactorStatus
-import org.junit.Before
-import org.junit.Test
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 
 import java.util.concurrent.ExecutionException
 import java.util.concurrent.Future
@@ -19,7 +19,7 @@ class AsyncJsonHttpClientTest {
     private AsyncJsonHttpClient client = new AsyncJsonHttpClient()
     private String url = "https://endpoint-tester.testing.trevorism.com/api/json"
 
-    @Before
+    @BeforeEach
     void setup(){
         client.asyncHttpClient = [getStatus:{-> IOReactorStatus.ACTIVE}, doExecute: { u, v, w, x, y, z -> return new Future<SimpleHttpResponse>(){
             @Override

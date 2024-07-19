@@ -1,14 +1,14 @@
 package com.trevorism.http
 
 import org.apache.hc.client5.http.impl.classic.CloseableHttpClient
-import org.junit.Before
-import org.junit.Test
+import org.junit.jupiter.api.BeforeEach
+import org.junit.jupiter.api.Test
 
 class HttpClientBaseTest {
 
     private HttpClientBase client
 
-    @Before
+    @BeforeEach
     void setup(){
         client = new HttpClientBase() {
             @Override

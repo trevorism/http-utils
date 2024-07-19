@@ -1,7 +1,7 @@
 package com.trevorism.http
 
-import org.junit.Test
-
+import org.junit.jupiter.api.Test
+import static org.junit.jupiter.api.Assertions.assertThrows
 /**
  * @author trevor.brooks
  */
@@ -18,23 +18,23 @@ class XmlHttpClientTest {
         def client = new XmlHttpClient()
 
         String response = client.get(url)
-        assert "hello xml" == response
+        assert '<hello> xml </hello>' == response
     }
 
-    @Test(expected = RuntimeException)
+    @Test
     void testErrorGet(){
         String url = "bzzzzzz"
         def client = new XmlHttpClient()
 
-        client.get(url)
+        assertThrows(RuntimeException, () -> client.get(url))
     }
 
-    @Test(expected = RuntimeException)
+    @Test
     void testErrorPost(){
         String url = "bzzzzzz"
         def client = new XmlHttpClient()
 
-        client.post(url,"<xml>test</xml>")
+        assertThrows(RuntimeException, () -> client.post(url,"<xml>test</xml>"))
 
     }
 }
