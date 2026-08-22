@@ -1,23 +1,27 @@
-# 2.2.0
+## 2.3.0
+
+Improve error handling and update to java 25. Update dependencies.
+
+## 2.2.0
 
 Update dependencies. Move to junit 5.
 
-# 2.1.0
+## 2.1.0
 
 Add status code to responses and errors for better error handling.
 
-# 2.0.0
+## 2.0.0
 
 Migrate to httpclient5. Improve interfaces.
 
-# 1.4.0
+## 1.4.0
 
 Move to github actions
 
-# 1.2.0
+## 1.2.0
 
 Added HTTP verb PATCH to implementation
 
-# 1.1.0
+## 1.1.0
 
 Basic, headers, and async implementations of the HTTP verbs GET, POST, PUT, and DELETE
