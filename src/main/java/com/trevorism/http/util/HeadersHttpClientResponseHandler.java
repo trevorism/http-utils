@@ -19,9 +19,6 @@ public class HeadersHttpClientResponseHandler extends AbstractHttpClientResponse
     private Map<String,String> headers = new HashMap<>();
     private int statusCode;
 
-    /**
-     * Returns the entity as a body as a String.
-     */
     @Override
     public HeadersHttpResponse handleEntity(final HttpEntity entity) throws IOException {
         try {
