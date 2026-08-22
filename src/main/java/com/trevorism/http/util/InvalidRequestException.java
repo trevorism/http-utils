@@ -17,4 +17,12 @@ public class InvalidRequestException extends RuntimeException{
     public int getStatusCode() {
         return statusCode;
     }
+
+    public String getResponseBody() {
+        Throwable cause = getCause();
+        if (cause instanceof HttpResponseBodyException) {
+            return ((HttpResponseBodyException) cause).getResponseBody();
+        }
+        return null;
+    }
 }

@@ -38,14 +38,26 @@ public class HeadersHttpClientResponseHandler extends AbstractHttpClientResponse
         final HttpEntity entity = response.getEntity();
 
         if (response.getCode() >= HttpStatus.SC_REDIRECTION) {
-            EntityUtils.consume(entity);
-            throw new HttpResponseException(response.getCode(), response.getReasonPhrase());
+            throw new HttpResponseBodyException(response.getCode(), response.getReasonPhrase(), readBody(entity));
         }
 
         for (Header header : response.getHeaders()) {
             headers.put(header.getName(), header.getValue());
         }
         return entity == null ? new HeadersHttpResponse(null, headers) : handleEntity(entity);
+    }
+
+    private static String readBody(final HttpEntity entity) throws IOException {
+        if (entity == null) {
+            return null;
+        }
+        try {
+            return EntityUtils.toString(entity);
+        } catch (final ParseException ex) {
+            return null;
+        } finally {
+            EntityUtils.consume(entity);
+        }
     }
 
 }
